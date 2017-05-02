@@ -3,10 +3,10 @@
   <channel>
     <title>Mark Salama</title>
     <description>A Place for My Work</description>
-    <link>http://localhost:4000/blog/</link>
-    <atom:link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 May 2017 21:59:08 -0400</pubDate>
-    <lastBuildDate>Mon, 01 May 2017 21:59:08 -0400</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 01 May 2017 22:11:42 -0400</pubDate>
+    <lastBuildDate>Mon, 01 May 2017 22:11:42 -0400</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -22,8 +22,8 @@
 &lt;p&gt;I used a combination of pandas, R (ggplot), and seaborn to produce these graphics.&lt;/p&gt;
 </description>
         <pubDate>Mon, 02 May 2016 10:15:31 -0400</pubDate>
-        <link>http://localhost:4000/blog/bike-share/2016/05/02/bike-share-2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/bike-share/2016/05/02/bike-share-2.html</guid>
+        <link>http://localhost:4000/bike-share/2016/05/02/bike-share-2.html</link>
+        <guid isPermaLink="true">http://localhost:4000/bike-share/2016/05/02/bike-share-2.html</guid>
         
         
         <category>bike-share</category>
@@ -43,8 +43,8 @@
 &lt;p&gt;I used pandas to combine the quarterly CSVs made available by Citibike, and then exported a group by function to R where I used ggplot to produce these heatmaps.&lt;/p&gt;
 </description>
         <pubDate>Sun, 01 May 2016 10:15:31 -0400</pubDate>
-        <link>http://localhost:4000/blog/2016/05/01/bike-share-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2016/05/01/bike-share-1.html</guid>
+        <link>http://localhost:4000/2016/05/01/bike-share-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/01/bike-share-1.html</guid>
         
         
       </item>
