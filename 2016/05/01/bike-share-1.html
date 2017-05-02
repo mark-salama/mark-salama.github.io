@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Mark Salama</title>
-  <meta name="description" content="A Place for My Work">
+  <title>Citibike Heatmaps 2016</title>
+  <meta name="description" content="Here is a graphic of utilization for NYC’s system across an entire year, with each day as a column and every 15 minutes as a row.">
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Source+Sans+Pro:400,700,200,300|Josefin+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/2016/05/01/bike-share-1.html">
   <link rel="alternate" type="application/rss+xml" title="Mark Salama" href="http://localhost:4000/feed.xml">
 </head>
 
@@ -48,70 +48,39 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline"><a class="post-title-link"  href="/2016/05/01/bike-share-1.html">Citibike Heatmaps 2016</a></h1>
+  <center>  <p class="post-meta"><time datetime="2016-05-01T10:15:31-04:00" itemprop="datePublished">May 1, 2016</time></p>
+    
+   </center>
+  </header>
 
-  
-  <div class="post postContent">
-    <div  class="postDate"><time datetime="2016-05-02T10:15:31-04:00" itemprop="datePublished">May 2, 2016</time>
-    </div>
-    <div class="postTag">
-      
-    </div>
-    <br>
-    <div class="postTitle">
-    <a class='postLink' href="http://localhost:4000/bike-share/2016/05/02/bike-share-2.html">Neighborhood Average Age through Citibike Usage</a>
-    </div>
-    <div class="postExt">
-   Citibike makes data available for all rides on their network. We have the starting station location of each trip, and for most trips, the birth year of the rider. Using the Google API, I associated...
-    </div>
+  <div class="post-content" itemprop="articleBody">
+    <p>Here is a graphic of utilization for NYC’s system across an entire year, with each day as a column and every 15 minutes as a row.</p>
+
+<p style="text-align: center;"><img src="/assets/citibike_full_2016.png" alt="alt text" title="Citibike Heatmap 2016" /></p>
+
+<p>We immediately see the distinction between working days where people use the bikes to get to and from work, and weekends and holidays where riding primarily occurs during the day. It is also clear that riding peaks in September and October which can be explained by the great fall weather. To focus on commuting behavoir, I removed all weekends and holidays.</p>
+
+<p style="text-align: center;"><img src="/assets/citibike_working_2016.png" alt="alt text" title="Citibike Heatmap 2016" /></p>
+
+<p>I used pandas to combine the quarterly CSVs made available by Citibike, and then exported a group by function to R where I used ggplot to produce these heatmaps.</p>
+
   </div>
 
-  
-  <div class="post postContent">
-    <div  class="postDate"><time datetime="2016-05-01T10:15:31-04:00" itemprop="datePublished">May 1, 2016</time>
-    </div>
-    <div class="postTag">
-      
-    </div>
-    <br>
-    <div class="postTitle">
-    <a class='postLink' href="http://localhost:4000/2016/05/01/bike-share-1.html">Citibike Heatmaps 2016</a>
-    </div>
-    <div class="postExt">
-   Here is a graphic of utilization for NYC’s system across an entire year, with each day as a column and every 15 minutes as a row.
-
-
-
-We immediately see the distinction between working days where pe...
-    </div>
-  </div>
-
+  <footer class="postNavigation">
   
   
-  <!--<ul class="post-list">
-    
-      <li>
-        <span class="post-meta-main">May 2, 2016</span>
-
-        <h2>
-          <a class="post-link-main" href="/bike-share/2016/05/02/bike-share-2.html">Neighborhood Average Age through Citibike Usage</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta-main">May 1, 2016</span>
-
-        <h2>
-          <a class="post-link-main" href="/2016/05/01/bike-share-1.html">Citibike Heatmaps 2016</a>
-        </h2>
-      </li>
-    
-  </ul>-->
+    <a class="postNext" href="/bike-share/2016/05/02/bike-share-2.html">
+        Neighborhood Average Age through Citibike Usage &raquo;
+    </a>
+  
+  </footer>
 
 
-
-</div>
+</article>
 
       </div>
     </div>
