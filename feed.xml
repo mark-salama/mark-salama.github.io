@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mark Salama</title>
-    <description>A Place for My Work</description>
-    <link>http://localhost:4000/</link>
+    <title></title>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 May 2017 11:45:05 -0400</pubDate>
-    <lastBuildDate>Tue, 02 May 2017 11:45:05 -0400</lastBuildDate>
-    <generator>Jekyll v3.4.3</generator>
+    <link>http://localhost:4000/</link>
+    <description></description>
+    <pubDate>Fri, 05 May 2017 12:40:55 -0400</pubDate>
     
       <item>
         <title>Neighborhood Average Age through Citibike Usage</title>
+        <link>http://localhost:4000/2016/05/02/bike-share-2.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/02/bike-share-2.html</guid>
         <description>&lt;p&gt;Citibike makes data available for all rides on their network. We have the starting station location of each trip, and for most trips, the birth year of the rider. I approximated age from the birth year variable, and using the Google API, I associated each Citibike station with a neighborhood in NYC (e.g., Chelsea or Williamsburg). I then looked at the average age of riders by starting neighborhood.&lt;/p&gt;
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/assets/citibike_age_neigh.png&quot; alt=&quot;alt text&quot; title=&quot;Age Neighborhood&quot; /&gt;&lt;/p&gt;
@@ -22,14 +22,12 @@
 &lt;p&gt;I used a combination of pandas, R (ggplot), and seaborn to produce these graphics.&lt;/p&gt;
 </description>
         <pubDate>Mon, 02 May 2016 10:15:31 -0400</pubDate>
-        <link>http://localhost:4000/2016/05/02/bike-share-2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/02/bike-share-2.html</guid>
-        
-        
       </item>
     
       <item>
         <title>Citibike Heatmaps 2016</title>
+        <link>http://localhost:4000/2016/05/01/bike-share-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/01/bike-share-1.html</guid>
         <description>&lt;p&gt;Here is a heatmap of Citibike usage across an entire year, with each day as a column and every 15 minutes as a row.&lt;/p&gt;
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/assets/citibike_full_2016.png&quot; alt=&quot;alt text&quot; title=&quot;Citibike Heatmap 2016&quot; /&gt;&lt;/p&gt;
@@ -43,10 +41,6 @@
 I used pandas to combine the quarterly CSVs made available by Citibike, and then exported a group by function to R where I used ggplot to produce these heatmaps.&lt;/p&gt;
 </description>
         <pubDate>Sun, 01 May 2016 10:15:31 -0400</pubDate>
-        <link>http://localhost:4000/2016/05/01/bike-share-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/01/bike-share-1.html</guid>
-        
-        
       </item>
     
   </channel>
