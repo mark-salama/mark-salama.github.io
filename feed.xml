@@ -5,7 +5,7 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://localhost:4000/</link>
     <description></description>
-    <pubDate>Mon, 08 May 2017 16:47:37 -0400</pubDate>
+    <pubDate>Mon, 08 May 2017 16:58:31 -0400</pubDate>
     
       <item>
         <title>Movie Similarities using Matrix Factorization</title>
@@ -31,7 +31,7 @@
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/img/movie_factors.png&quot; alt=&quot;alt text&quot; title=&quot;Factors&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The factor on the left captures dark vs. romanitic with crime dramas high in the factor and romantic dramas low in the factor. The right factor appers to be musical/comedy vs. action. Pretty amazing that this information can be extracted from 95,000 moive ratings.&lt;/p&gt;
+&lt;p&gt;The factor on the left captures dark vs. romanitic with crime dramas high in the factor and romantic dramas low in the factor. The right factor appers to be musical/comedy vs. action. Pretty amazing that this information can be extracted from 95,000 moive ratings. Netflix has a lot more than that.&lt;/p&gt;
 
 &lt;p&gt;The ratings data was adapted from the GroupLens Research Project at the University of Minnesota by &lt;a href=&quot;http://www.columbia.edu/~jwp2128/&quot;&gt;John Paisley&lt;/a&gt;, the professor of my Machine Learning course. I used Python to iteratively build the movie and user matrices and ggplot to plot the movie locations.&lt;/p&gt;
 
