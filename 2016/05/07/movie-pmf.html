@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Movie Similarities using Matrix Factorization | Mark Salama</title>
+	<meta name="description" content="For an assignment in a machine learning class, we were given a file with 95,000 movie ratings in the form of - user_id, movie_id and rating. From this we can...">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/2016/05/07/movie-pmf.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Mark Salama" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Mark Salama</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/mark-salama" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/marksalama" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Movie Similarities using Matrix Factorization</h1>
+    <p class="meta">
+    May 7, 2016
+    
+    </p>
+  </header>
+  <section class="post-content"><p>For an assignment in a machine learning class, we were given a file with 95,000 movie ratings in the form of - user_id, movie_id and rating. From this we can build what is called an incomplete ratings matrix and the assignment was to fill in the matrix using probabilistic matrix factorization which is a form of <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">collaborative filtering</a>. There are 1,682 different movies and 943 different users in the data. Since we have 95,000 ratings, there are ~1.5 million incomplete (missing) ratings or 94%. Here is an example of a ratings matrix. In practice, there are more blanks.</p>
+
+<p style="text-align: center;"><img src="/img/example_matrix.png" alt="alt text" title="Example Matrix" /></p>
+
+<p>To perform matrix factorization, we decide on a number of features (e.g., 10), and factorize the ratings matrix into two matrices, one for the movies and one for the users, each with 10 dimensions (the number of features we settled on). Each row of the movie matrix corresponds to one movie and we learn 10 numbers for each movie, a movie vector. Similarly, each row of the user matrix corresponds to one user and we learn 10 numbers for each user, a user vector. It is an iterative process where we first update each user vector based on each movie they have rated, and the rating they gave it and then update each movie vector based on the information we have about each user who rated this movie (which is contained in the user vector) and the rating that user gave. We repeat this process until the changes in the movie and user vectors drop below some threshold. The code is at the bottom of this post and on my GitHub page. The idea is that once we have learned the two matrices, we can predict a missing value in the ratings matrix using the respective movie and user vectors. For example, if we want to predict how Erica would rate Pulp Fiction, we would multiply the row of the user matrix corresponding to Erica by the row of the movie matrix corresponding to Pulp Fiction.</p>
+
+<p>A nice way to test whether the 10-numbers (features) that we have learned have any meaning, is to see if similar movies have similar values for the 10 features. To do so, we select a movie, and then calculate its distance to every other movie (distance is essentially the sum of the respective differences in the 10 numbers). Here are the 10 movies closest to ‘Star Wars’, ‘Lion King’ and ‘Dumb and Dumber’.</p>
+
+<p style="text-align: center;"><img src="/img/similar_movies_table.png" alt="alt text" title="Similar Movies Table" /></p>
+
+<p>If we were able to visualize a 10-dimensional space, these would be the ten movies that are closest to the given movie in that space. To view it in 2D, we can use a feature of scikit-learn called t-SNE to perform dimensionality reduction and reduce each movie to 2-dimensions. As this resulted in many points that were extremely close to each other, I used the ggrepel library in R to separate the data points.</p>
+
+<p style="text-align: center;"><img src="/img/similar_movies_plot.png" alt="alt text" title="Similar Movies Plot" /></p>
+
+<p>The three Star Wars movies are right next to each other, same with The Rock, Independence Day and Air Force One, but what is Liar Liar doing so close by? It’s nice to be able to compare the movies in a scatterplot but we lost information.</p>
+
+<p>Back to 10-dimensions, I was curious if I could understand what the 10 factors that the model learns actually capture. To investigate this, I looked at what movies had the highest and lowest values for each of the ten factors. When I did this the first time, I didn’t recognize most of the movies, so I only considered the 250 movies with the highest number of ratings. I had trouble deciphering many of the factors but found these two to be clear.</p>
+
+<p style="text-align: center;"><img src="/img/movie_factors.png" alt="alt text" title="Factors" /></p>
+
+<p>The factor on the left appears to be related to how dark the movies are - movies that are high in the factor are depressing and those that are low in the factor are light and happy. The factor on the right could be related to the amount of violence in the movie.</p>
+
+<p>The ratings data was adapted from the GroupLens Research Project at the University of Minnesota by <a href="http://www.columbia.edu/~jwp2128/">John Paisley</a>, the professor of my Machine Learning course. I used Python to iteratively build the movie and user matrices and ggplot to plot the movie locations.</p>
+
+<p>Here is the code for probabilistic matrix factorization. We initialize each movie and user to a random set of 10 numbers and then update these arrays through matrix operations.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">matrix_fact</span><span class="p">(</span><span class="n">num_fact</span><span class="p">,</span> <span class="n">interations</span><span class="p">):</span>
+    <span class="n">user_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">movie_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">interations</span><span class="p">):</span> 
+    
+        <span class="n">user_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_fact</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_fact</span><span class="p">),</span><span class="mi">943</span><span class="p">)</span>
+        <span class="n">movie_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_fact</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_fact</span><span class="p">),</span><span class="mi">1682</span><span class="p">)</span>
+        <span class="n">first_part</span> <span class="o">=</span> <span class="n">lamb</span><span class="o">*</span><span class="n">varsq</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_fact</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">user_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+                <span class="n">locas_nan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">matrix_m</span><span class="p">[</span><span class="n">i</span><span class="p">,:]))</span>
+                <span class="n">v_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">movie_m</span><span class="p">[</span><span class="n">locas_nan</span><span class="p">]),</span><span class="n">movie_m</span><span class="p">[</span><span class="n">locas_nan</span><span class="p">])</span>
+                <span class="n">m_v_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix_m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">locas_nan</span><span class="p">],</span><span class="n">movie_m</span><span class="p">[</span><span class="n">locas_nan</span><span class="p">])</span>         
+                <span class="n">user_m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">first_part</span><span class="o">+</span><span class="n">v_dot</span><span class="p">),</span><span class="n">m_v_dot</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">movie_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+                <span class="n">locas_nan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">matrix_m</span><span class="p">[:,</span><span class="n">k</span><span class="p">]))</span>
+                <span class="n">u_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">user_m</span><span class="p">[</span><span class="n">locas_nan</span><span class="p">]),</span><span class="n">user_m</span><span class="p">[</span><span class="n">locas_nan</span><span class="p">])</span>
+                <span class="n">m_u_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix_m</span><span class="p">[:,</span><span class="n">k</span><span class="p">][</span><span class="n">locas_nan</span><span class="p">],</span><span class="n">user_m</span><span class="p">[</span><span class="n">locas_nan</span><span class="p">])</span>
+                <span class="n">movie_m</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">first_part</span><span class="o">+</span><span class="n">u_dot</span><span class="p">),</span><span class="n">m_u_dot</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        
+        <span class="n">user_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_m</span><span class="p">)</span>
+        <span class="n">movie_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">movie_m</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">user_list</span><span class="p">,</span> <span class="n">movie_list</span>
+</code></pre>
+</div>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+    </div>
+    
+<script src="/js/katex_init.js"></script>
+
+
+
+
+  </body>
+</html>
