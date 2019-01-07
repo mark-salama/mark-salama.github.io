@@ -3,10 +3,10 @@
   <channel>
     <title>Mark Salama</title>
     <description>Data Science Portfolio.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://www.marksalama.com/</link>
+    <atom:link href="http://www.marksalama.com/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>2019-01-07</pubDate>
-    <lastBuildDate>Mon, 07 Jan 2019 21:12:14 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jan 2019 22:19:32 +0100</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -18,8 +18,8 @@
 &lt;p&gt;To arrive at similarities for each movie, I used the &lt;a href=&quot;http://surpriselib.com&quot;&gt;surprise&lt;/a&gt; python package to build a similarity matrix capturing how similar each movie is to every other movie. As this matrix is very large (with n^2 entries) I employed principal component analysis (PCA) with 10 components to create a more manageable dataset. I found that 10 components was a good balance of complexity and predictive power. When a user selects a movie from the dropdown, movies with the most similar vector representations (from the PCA of the similarity matrix) are displayed. As much of the impetus for this project was to be able to identify recommendations based on multiple starting movies, I thought a lot about how to go two or more movies, to a list of similar movies, but ultimately settled on simply averaging the vectors of the selected movies.&lt;/p&gt;
 </description>
         <pubDate>2019-01-07</pubDate>
-        <link>http://localhost:4000/articles/2018-08/movie-recommender</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2018-08/movie-recommender</guid>
+        <link>http://www.marksalama.com/articles/2018-08/movie-recommender</link>
+        <guid isPermaLink="true">http://www.marksalama.com/articles/2018-08/movie-recommender</guid>
         
         
         <category>recommender systems</category>
@@ -89,8 +89,8 @@ def matrix_fact(num_fact, interations):
 ``` --&gt;
 </description>
         <pubDate>2019-01-07</pubDate>
-        <link>http://localhost:4000/articles/2017-05/movie-pmf</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2017-05/movie-pmf</guid>
+        <link>http://www.marksalama.com/articles/2017-05/movie-pmf</link>
+        <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/movie-pmf</guid>
         
         
         <category>recommender systems</category>
@@ -112,8 +112,8 @@ def matrix_fact(num_fact, interations):
 &lt;p&gt;I used a combination of pandas, R (ggplot), and seaborn to produce these graphics.&lt;/p&gt;
 </description>
         <pubDate>2019-01-07</pubDate>
-        <link>http://localhost:4000/articles/2017-05/bike-share-2</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2017-05/bike-share-2</guid>
+        <link>http://www.marksalama.com/articles/2017-05/bike-share-2</link>
+        <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/bike-share-2</guid>
         
         
         <category>visualization</category>
@@ -138,8 +138,8 @@ def matrix_fact(num_fact, interations):
 I used pandas to combine the quarterly CSVs made available by Citibike, and then exported a group by function to R where I used ggplot to produce these heatmaps.&lt;/p&gt;
 </description>
         <pubDate>2019-01-07</pubDate>
-        <link>http://localhost:4000/articles/2017-05/bike-share-1</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2017-05/bike-share-1</guid>
+        <link>http://www.marksalama.com/articles/2017-05/bike-share-1</link>
+        <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/bike-share-1</guid>
         
         
         <category>visualization</category>
