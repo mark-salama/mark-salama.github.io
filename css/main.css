@@ -633,7 +633,7 @@ ul.tag-cloud li a.post-tag { border-radius: 0.2em; }
 .archive ul li { margin: 1em auto; }
 
 .post-listing { background-color: #fff; position: absolute; top: 400px; z-index: 233; width: 100%; padding: 20px 20px 0; -webkit-transform: translate3d(0, 0, 1px); transform: translate3d(0, 0, 1px); }
-@media only screen and (min-width: 600px) { .post-listing { padding: 50px 30px 0; } }
+@media only screen and (min-width: 600px) { .post-listing { padding: 50px 100px 0; } }
 @media only screen and (min-width: 992px) { .post-listing { height: 100vh; overflow-y: scroll; position: initial; top: 0; } }
 
 .image-credit { float: right; font-weight: bold; font-style: italic; color: #09ABF6; font-size: 13px; padding-right: 20px; }
@@ -653,7 +653,7 @@ section.post { margin-bottom: 80px; }
 
 a.read-more { padding: 5px 8px; }
 
-#post { padding-bottom: 50px; }
+#post { padding-right: 50px; padding-bottom: 50px; }
 #post .post-header { margin: 0 auto 50px; }
 
 #post h1 { margin: 0.5em 0 1em; }

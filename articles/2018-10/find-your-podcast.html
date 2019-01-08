@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A personalized podcast discovery website with over 3,000 podcasts.">
+  <meta name="keywords" content="blog and jekyll">
+  <meta name="author" content="Find Your Podcast | Mark Salama">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Find Your Podcast | Mark Salama">
+  <meta name="twitter:description" content="A personalized podcast discovery website with over 3,000 podcasts.">
+  
+    <meta property="twitter:image" content="http://www.marksalama.com/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://www.marksalama.com/articles/2018-10/find-your-podcast">
+  <meta property="og:title" content="Find Your Podcast | Mark Salama">
+  <meta property="og:description" content="A personalized podcast discovery website with over 3,000 podcasts.">
+  
+    <meta property="og:image" content="http://www.marksalama.com/img/leonids-logo.png">
+  
+  <title>Find Your Podcast | Mark Salama</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://www.marksalama.com/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://www.marksalama.com/css/main.css">
+
+  <link rel="canonical" href="http://www.marksalama.com/articles/2018-10/find-your-podcast">
+  <link rel="alternate" type="application/rss+xml" title="Mark Salama" href="http://www.marksalama.com/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://www.marksalama.com/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://www.marksalama.com/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://www.marksalama.com/">
+    <img src="http://www.marksalama.com/img/avatar.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://www.marksalama.com/" class="author_name">Mark Salama</a>
+  <span class="author_job">Data Science Portfolio</span>
+  <span class="author_bio mbm">technology and markets through data</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://www.marksalama.com/">home</a>
+      </li>
+       
+      <li class="nav-item">
+        <a href="http://www.marksalama.com/about/">About</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://www.marksalama.com/archive/">Archive</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://www.marksalama.com/categories/">Categories</a>
+      </li>
+             
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://www.marksalama.com/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Find Your Podcast">Find Your Podcast</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        11 OCT 2018
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    1 min read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <p><a href="http://www.findyourpodcast.com"><strong>Find Your Podcast</strong></a></p>
+
+<p>Continuing with recommender systems, I wanted to build something for podcasts. I’ve found new podcasts by looking through the charts on iTunes but I wanted a personalized solution. I’ve used association analysis successfully before, and thought I could associate each podcast with a twitter account and then identify similar podcasts by looking at overlapping followers. To test the concept, I downloaded the follower lists for two similar podcasts and found that approximately 50% of the followers were overlapping.</p>
+
+<p>Using the podcasts database from <a href="https://www.listennotes.com">Listen Notes</a> and the Twitter API, I extended this concept to 1,000 podcasts and built a website using Django. I received feedback that people weren’t finding their favorite podcasts which led me to extend it to 3,000 podcasts. I received the same feedback but without a paid Twitter Developer account, one can only download a certain number of follower lists at one time, which makes it hard to scale to additional podcasts, or keep recommendations up-to-date. So you might not find your favorite podcast, but the recommendations work pretty well.</p>
+
+  </article>
+</div>
+
+<!-- <div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://www.marksalama.com/articles/2018-10/find-your-podcast" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.marksalama.com/articles/2018-10/find-your-podcast" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://www.marksalama.com/articles/2018-10/find-your-podcast" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://www.marksalama.com/articles/2018-10/find-your-podcast" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://www.marksalama.com/articles/2018-10/find-your-podcast" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div> -->
+<!-- end share-buttons -->
+
+
+
+        <footer>
+  &copy; 2019 Mark Salama<!-- . Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i> -->
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://www.marksalama.com/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://www.marksalama.com/js/main.js"></script>
+
+
+</body>
+</html>
+
+
+
