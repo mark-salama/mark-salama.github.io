@@ -6,7 +6,7 @@
     <link>http://www.marksalama.com/</link>
     <atom:link href="http://www.marksalama.com/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>2019-01-09</pubDate>
-    <lastBuildDate>Wed, 09 Jan 2019 17:37:27 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jan 2019 17:48:02 +0100</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -24,7 +24,7 @@
 &lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/img/diagnoses.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;
-Note that a positive weight is related to a higher predicted probability of readmission. We can see that up until 5 diagnoses, this feature has a relatively consistent negative weight, so it contributes to a lower chance of being readmitted. But if an observation has more than 6 diagnoses, this feature has a positive weight, so a higher chance of readmission. And just as the difference between 3,4 and 5 diagnoses on the low end is muted, there is little difference between 7, 8 or 9 diagnoses. Intuitively this makes sense. Decision trees are great for learning non-linear relationships, and with this method, we can visualize what the model learned!&lt;/p&gt;
+Note that a positive weight is related to a higher predicted probability of readmission. We can see that up until 5 diagnoses, this feature has a relatively consistent negative weight, so it contributes to a lower chance of being readmitted. But if an observation has more than 6 diagnoses, this feature has a positive weight, or a higher chance of readmission. And just as the difference between 3, 4 and 5 diagnoses on the low end is muted, there is little difference between 7, 8 or 9 diagnoses. Intuitively this makes sense. Decision trees are great for learning non-linear relationships, and with this method, we can visualize what the model learned!&lt;/p&gt;
 </description>
         <pubDate>2019-01-09</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/visualizing-decision-trees</link>
