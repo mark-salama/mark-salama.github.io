@@ -8,16 +8,16 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Decision trees frequently outperform regression for prediction tasks, however they are not as easy to interpret. In this post, I use the ELI5 package to visu...">
+  <meta name="description" content="Decision tree ensembles frequently outperform regression but are not as easy to interpret. In this post I use the ELI5 package to visualize the learned relat...">
   <meta name="keywords" content="blog and jekyll">
-  <meta name="author" content="Visualizing decision trees using ELI5 | Mark Salama">
+  <meta name="author" content="Intreprating XGBoost Models using ELI5 | Mark Salama">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f5f5f5">
 
   <!-- Twitter Tags -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Visualizing decision trees using ELI5 | Mark Salama">
-  <meta name="twitter:description" content="Decision trees frequently outperform regression for prediction tasks, however they are not as easy to interpret. In this post, I use the ELI5 package to visu...">
+  <meta name="twitter:title" content="Intreprating XGBoost Models using ELI5 | Mark Salama">
+  <meta name="twitter:description" content="Decision tree ensembles frequently outperform regression but are not as easy to interpret. In this post I use the ELI5 package to visualize the learned relat...">
   
     <meta property="twitter:image" content="http://www.marksalama.com/img/leonids-logo.png">
   
@@ -25,12 +25,12 @@
   <!-- Open Graph Tags -->
   <meta property="og:type" content="blog">
   <meta property="og:url" content="http://www.marksalama.com/articles/2019-01/visualizing-decision-trees">
-  <meta property="og:title" content="Visualizing decision trees using ELI5 | Mark Salama">
-  <meta property="og:description" content="Decision trees frequently outperform regression for prediction tasks, however they are not as easy to interpret. In this post, I use the ELI5 package to visu...">
+  <meta property="og:title" content="Intreprating XGBoost Models using ELI5 | Mark Salama">
+  <meta property="og:description" content="Decision tree ensembles frequently outperform regression but are not as easy to interpret. In this post I use the ELI5 package to visualize the learned relat...">
   
     <meta property="og:image" content="http://www.marksalama.com/img/leonids-logo.png">
   
-  <title>Visualizing decision trees using ELI5 | Mark Salama</title>
+  <title>Intreprating XGBoost Models using ELI5 | Mark Salama</title>
 
   <!-- CSS files -->
   <link rel="stylesheet" href="http://www.marksalama.com/css/font-awesome.min.css">
@@ -138,7 +138,7 @@
 
 <div id="post">
   <header class="post-header">
-    <h1 title="Visualizing decision trees using ELI5">Visualizing decision trees using ELI5</h1>
+    <h1 title="Intreprating XGBoost Models using ELI5">Intreprating XGBoost Models using ELI5</h1>
     <span class="post-meta">
       <span class="post-date">
         9 JAN 2019
@@ -156,20 +156,22 @@
   </header>
 
   <article class="post-content">
-    <p>Decision trees, specifically <a href="https://en.wikipedia.org/wiki/Gradient_boosting">gradient boosted methods</a>, are a powerful and easy-to-use machine learning technique for making predictions. They work by leveraging a large number of simple decision trees. For example, if we are trying to predict how students will score on an upcoming test, one tree might look like this.</p>
+    <p>Decision tree ensembles, specifically <a href="https://en.wikipedia.org/wiki/Gradient_boosting">gradient boosted methods</a>, are a powerful and easy-to-use machine learning technique for making predictions. They work by leveraging a large number of simple decision trees. For example if we are trying to predict how students will score on an upcoming test, one decision tree might look like this.</p>
 
 <p style="text-align: center;"><img src="/img/sample_decision_tree.png" alt="alt text" /></p>
 
-<p>Each tree individually doesn’t tell us much, but if we average the responses of hundreds of trees, the predictions become robust. I liken it to guessing how many candies are in a jar. One guess is random, but the average of 1,000 guesses is usually a good approximation.</p>
+<p>A single tree captures some information but is insufficient to make an accurate prediction. Only when we aggregate the responses of hundreds of trees, do the predictions become robust. I liken it to guessing how many candies are in a jar. One person’s guess might be far off, but the average of 1,000 guesses is usually a good approximation.</p>
 
-<p>An issue with decision tree approaches is that it’s not immediately clear what relationships the model is learning. One can easily investigate one tree (XGBoost has a plot_tree method) but one tree doesn’t tell us much. Which brings us to the awesome <a href="https://eli5.readthedocs.io/en/latest/index.html">ELI5 package</a>. ELI5, an acronym for explain like I’m five, offers ways to visualize and understand how your model is making predictions. Specifically, for a given observation, it can tell you the impact of each feature on the prediction. It works by looking at how the prediction changes across all of the trees based on a specific feature. Let’s consider one student who studied for 5 hours. ELI5 might tell us that across all of the trees, having a value of 5 for hours studied has a +10 impact on the predicted score for the upcoming test. When we extend this to a large number of observations, we can understand the relationships the model is learning.</p>
+<p>An issue with decision tree ensembles is that it’s not clear what relationships the model has learned. One visualize one tree (XGBoost has a plot_tree method) but one tree doesn’t tell us much. Which brings us to the awesome <a href="https://eli5.readthedocs.io/en/latest/index.html">ELI5 package</a>. ELI5, an acronym for explain like I’m five, offers ways to visualize and understand how your model is making predictions. Specifically, for a given observation, it can tell you the impact of each feature on the prediction. It works by looking at how the prediction changes across all of the trees based on a specific feature. Let’s consider one student who studied for 5 hours. ELI5 might tell us that across all of the trees, having a value of 5 for hours studied has a +10 impact on the prediction for the upcoming test. When we extend this to a large number of observations, we can understand the relationships the model is learning.</p>
 
-<p>Using a dataset on hospital readmission, I want to walk through an example. The dataset is described in detail <a href="https://www.hindawi.com/journals/bmri/2014/781670/">here</a> but essentially there are features pertaining to a hospital visit such as the number of diagnoses made, length of visit, and how many procedures were performed, and the target variable is if they were readmitted to the hospital. I trained an XGBoost model, the code is on my <a href="https://github.com/mark-salama/eli_hospital_readmissions">GitHub</a>, and built this graphic to visualize the relationship the model learned between the number of diagnoses entered into the system during the patient’s visit and the probability of being readmitted.
+<p>Using a dataset on hospital readmission, I want to walk through an example. The dataset is described in detail <a href="https://www.hindawi.com/journals/bmri/2014/781670/">here</a> but essentially there are features pertaining to a hospital visit such as the number of diagnoses made, length of visit, and how many procedures were performed, and the target variable is if they were readmitted to the hospital. I trained an XGBoost model and ran ELI5’s explain_prediction method on 2,000 observations to build a dataset of feature values and their impact on predictions. After filtering for a specific feature and averaging weights across feature values, we can get an idea of the relationship that the model has learned. A positive weight is related to a higher predicted probability of readmission. This graphic shows the average weight for observations with between 2 and 10 diagnoses entered into the system during the patient’s visit.
 <br />
 <br /></p>
 <p style="text-align: center;"><img src="/img/diagnoses.png" alt="alt text" /></p>
 <p><br />
-Note that a positive weight is related to a higher predicted probability of readmission. We can see that up until 5 diagnoses, this feature has a relatively consistent negative weight, so it contributes to a lower chance of being readmitted. But if an observation has more than 6 diagnoses, this feature has a positive weight, or a higher chance of readmission. And just as the difference between 3, 4 and 5 diagnoses on the low end is muted, there is little difference between 7, 8 or 9 diagnoses. Intuitively this makes sense. Decision trees are great for learning non-linear relationships, and with this method, we can visualize what the model learned!</p>
+ Up until 5 diagnoses, the weight is relatively consistent and negative so it contributes to a lower chance of being readmitted. But if an observation has more than 6 diagnoses, this feature has a positive weight. And just as the difference between 3, 4 and 5 diagnoses on the low end is muted, there is little difference between 7, 8 or 9 diagnoses. Intuitively this makes sense. Decision trees are great for learning non-linear relationships, and with this method, we can visualize what the model learned!</p>
+
+<p>The code is on my <a href="https://github.com/mark-salama/eli_hospital_readmissions">GitHub</a>.</p>
 
   </article>
 </div>
