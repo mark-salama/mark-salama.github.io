@@ -156,11 +156,11 @@
   </header>
 
   <article class="post-content">
-    <p>NYC makes <a href="https://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page">annual home sales data</a> available going back to 2003. They also provide <a href="https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-nynta.page">geographic data</a> that breaks NYC into neighborhoods. I know that NYC real estate has gone up over the last 15 years, but I wanted to better understand appreciation by neighborhood so I built this gif.</p>
+    <p>NYC makes <a href="https://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page">annual home sales data</a> available going back to 2003. They also provide <a href="https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-nynta.page">geographic data</a> that breaks NYC into neighborhoods. To better understand home appreciation by neighborhood, I combined the datasets and built this GIF.</p>
 
 <p style="text-align: center;"><img src="/img/manhattan_appreciation.gif" alt="alt text" /></p>
 
-<p>The only tricky part was figuring out how to associate each transaction with a neighborhood. I found the latitude and longitude of all zip codes for which there was as transaction, and then used geopandas to join each zip code to a neighborhood. It would have been more accurate to find the latitude and longitude for each address but that would have required a large number of google API calls.</p>
+<p>The only tricky part was figuring out how to associate each transaction with a neighborhood. I found the latitude and longitude of all zip codes for which there was a transaction, and then used geopandas to join each zip code to a neighborhood. It would have been more accurate to find the latitude and longitude for each address but that would have required a large number of Google API calls.</p>
 
 
   </article>
