@@ -2,12 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mark Salama</title>
-    <description>Data Science Portfolio.</description>
+    <description>inspired by data.</description>
     <link>http://www.marksalama.com/</link>
     <atom:link href="http://www.marksalama.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>2019-01-10</pubDate>
-    <lastBuildDate>Thu, 10 Jan 2019 00:42:42 +0100</lastBuildDate>
+    <pubDate>2019-01-21</pubDate>
+    <lastBuildDate>Mon, 21 Jan 2019 15:30:00 +0100</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Powerball and Mega Millions by State</title>
+        <description>&lt;p&gt;Using data from &lt;a href=&quot;http://www.lottoreport.com&quot;&gt;LottoReport&lt;/a&gt; which breaks down sales by State, I built this map showing combined sales for Powerball and Mega Millions per capita. I downloaded data from 2010 to 2018, interpolated population data from &lt;a href=&quot;https://simple.wikipedia.org/wiki/List_of_U.S._states_by_population&quot;&gt;Wikipedia&lt;/a&gt;, and plotted the median sales per capita.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/img/pb_mm.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;New Jersey stood out with more than $45 spent per person per year based on $400 million in annual sales for the two games across 9 million people in the state. Considering gambling is an addictive activity, we can assume sales follow a left-skewed distribution with many spending much more than the average. Regardless, $45 for everyone in New Jersey seems like a lot.&lt;/p&gt;
+
+&lt;p&gt;I thought Mega Millions and Powerball were the highest grossing games but I was wrong. According to the &lt;a href=&quot;www.njlottery.com&quot;&gt;New Jersey Lottery&lt;/a&gt;, PICK-3 is the most popular game and nearly $3.3 billion is spent annually across all games. $3.3 billion across 9 million people is more than $300 per person. And again, not everyone plays so many are spending thousands per year. I understand that there are many beneficiaries of the lottery complex. In NJ, a minimum of 30% of ticket sales are sent to the state for education and other causes and retailers also benefit (receiving 5% of sales). But what about the people playing. We shouldn’t ignore the impact lottery has on Americans simply because schools are receiving funding. It is not in our country’s best interests to make education dependent on an addictive and potentially destructive habit.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://press.princeton.edu/titles/10534.html&quot;&gt;Phishing for Phools&lt;/a&gt;, Akerlof and Shiller explain that when slot machines were first introduced in the late-1800s, Americans were glued to these machines. Many lives were ruined and eventually regulations were introduced to limit slot machines to casinos. Now, with so many parties benefiting from lottery revenue, regulations are unlikely to disrupt the status-quo. The prevailing forces are pushing Americans to gamble more and more.&lt;/p&gt;
+
+</description>
+        <pubDate>2019-01-21</pubDate>
+        <link>http://www.marksalama.com/articles/2019-01/powerball-megamillions</link>
+        <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/powerball-megamillions</guid>
+        
+        
+        <category>visualization</category>
+        
+        <category>prediction</category>
+        
+      </item>
     
       <item>
         <title>Intreprating XGBoost Models using ELI5</title>
@@ -17,7 +41,7 @@
 
 &lt;p&gt;A single tree captures some information but is insufficient to make an accurate prediction. Only when we aggregate the responses of hundreds of trees, do the predictions become robust. I liken it to guessing how many candies are in a jar. One person’s guess might be far off, but the average of 1,000 guesses is usually a good approximation.&lt;/p&gt;
 
-&lt;p&gt;An issue with decision tree ensembles is that it’s not clear what relationships the model has learned. One visualize one tree (XGBoost has a plot_tree method) but one tree doesn’t tell us much. Which brings us to the awesome &lt;a href=&quot;https://eli5.readthedocs.io/en/latest/index.html&quot;&gt;ELI5 package&lt;/a&gt;. ELI5, an acronym for explain like I’m five, offers ways to visualize and understand how your model is making predictions. Specifically, for a given observation, it can tell you the impact of each feature on the prediction. It works by looking at how the prediction changes across all of the trees based on a specific feature. Let’s consider one student who studied for 5 hours. ELI5 might tell us that across all of the trees, having a value of 5 for hours studied has a +10 impact on the prediction for the upcoming test. When we extend this to a large number of observations, we can understand the relationships the model is learning.&lt;/p&gt;
+&lt;p&gt;An issue with decision tree ensembles is that it’s not clear what relationships the model has learned. One can visualize one tree (XGBoost has a plot_tree method) but one tree doesn’t tell us much. Which brings us to the awesome &lt;a href=&quot;https://eli5.readthedocs.io/en/latest/index.html&quot;&gt;ELI5 package&lt;/a&gt;. ELI5, an acronym for explain like I’m five, offers ways to visualize and understand how your model is making predictions. Specifically, for a given observation, it can tell you the impact of each feature on the prediction. It works by looking at how the prediction changes across all of the trees based on a specific feature. Let’s consider one student who studied for 5 hours. ELI5 might tell us that across all of the trees, having a value of 5 for hours studied has a +10 impact on the prediction for the upcoming test. When we extend this to a large number of observations, we can understand the relationships the model is learning.&lt;/p&gt;
 
 &lt;p&gt;Using a dataset on hospital readmission, I want to walk through an example. The dataset is described in detail &lt;a href=&quot;https://www.hindawi.com/journals/bmri/2014/781670/&quot;&gt;here&lt;/a&gt; but essentially there are features pertaining to a hospital visit such as the number of diagnoses made, length of visit, and how many procedures were performed, and the target variable is if they were readmitted to the hospital. I trained an XGBoost model and ran ELI5’s explain_prediction method on 2,000 observations to build a dataset of feature values and their impact on predictions. After filtering for a specific feature and averaging weights across feature values, we can get an idea of the relationship that the model has learned. A positive weight is related to a higher predicted probability of readmission. This graphic shows the average weight for observations with between 2 and 10 diagnoses entered into the system during the patient’s visit.
 &lt;br /&gt;
@@ -28,7 +52,7 @@
 
 &lt;p&gt;The code is on my &lt;a href=&quot;https://github.com/mark-salama/eli_hospital_readmissions&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/visualizing-decision-trees</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/visualizing-decision-trees</guid>
         
@@ -47,7 +71,7 @@
 
 &lt;p&gt;Brooklyn has seen greater appreciation than Manhattan, especially in the last few years.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/visualizing-brooklyn-home-price-appreciation</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/visualizing-brooklyn-home-price-appreciation</guid>
         
@@ -67,7 +91,7 @@
 &lt;p&gt;The only tricky part was figuring out how to associate each transaction with a neighborhood. I found the latitude and longitude of all zip codes for which there was a transaction, and then used geopandas to join each zip code to a neighborhood. It would have been more accurate to find the latitude and longitude for each address but that would have required a large number of Google API calls.&lt;/p&gt;
 
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/visualizing-manhattan-home-price-appreciation</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/visualizing-manhattan-home-price-appreciation</guid>
         
@@ -84,7 +108,7 @@
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/img/fb_may.gif&quot; alt=&quot;alt text&quot; title=&quot;Sell in May&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2018-12/sell-in-may</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2018-12/sell-in-may</guid>
         
@@ -103,7 +127,7 @@
 
 &lt;p&gt;Using the podcasts database from &lt;a href=&quot;https://www.listennotes.com&quot;&gt;Listen Notes&lt;/a&gt; and the Twitter API, I extended this concept to 1,000 podcasts and built a website using Django. I received feedback that people weren’t finding their favorite podcasts which led me to extend it to 3,000 podcasts. I received the same feedback but without a paid Twitter Developer account, one can only download a certain number of follower lists at one time, which makes it hard to scale to additional podcasts, or keep recommendations up-to-date. So you might not find your favorite podcast, but the recommendations work pretty well.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2018-10/find-your-podcast</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2018-10/find-your-podcast</guid>
         
@@ -122,7 +146,7 @@
 
 &lt;p&gt;To arrive at similarities for each movie, I used the &lt;a href=&quot;http://surpriselib.com&quot;&gt;surprise&lt;/a&gt; python package to build a similarity matrix capturing how similar each movie is to every other movie. As this matrix is very large (with n^2 entries) I employed principal component analysis (PCA) with 10 components to create a more manageable dataset. I found that 10 components was a good balance of complexity and predictive power. When a user selects a movie from the dropdown, movies with the most similar vector representations (from the PCA of the similarity matrix) are displayed. As much of the impetus for this project was to be able to identify recommendations based on multiple starting movies, I thought a lot about how to go two or more movies, to a list of similar movies, but ultimately settled on simply averaging the vectors of the selected movies.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2018-08/movie-recommender</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2018-08/movie-recommender</guid>
         
@@ -193,7 +217,7 @@ def matrix_fact(num_fact, interations):
     return user_list, movie_list
 ``` --&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2017-05/movie-pmf</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/movie-pmf</guid>
         
@@ -216,7 +240,7 @@ def matrix_fact(num_fact, interations):
 
 &lt;p&gt;I used a combination of pandas, R (ggplot), and seaborn to produce these graphics.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2017-05/bike-share-2</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/bike-share-2</guid>
         
@@ -242,7 +266,7 @@ def matrix_fact(num_fact, interations):
 &lt;br /&gt;
 I used pandas to combine the quarterly CSVs made available by Citibike, and then exported a group by function to R where I used ggplot to produce these heatmaps.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-10</pubDate>
+        <pubDate>2019-01-21</pubDate>
         <link>http://www.marksalama.com/articles/2017-05/bike-share-1</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/bike-share-1</guid>
         

@@ -60,8 +60,9 @@
   </a>
   
   <a href="http://www.marksalama.com/" class="author_name">Mark Salama</a>
-  <span class="author_job">Data Science Portfolio</span>
-  <span class="author_bio mbm">technology and markets through data</span>
+  <span class="author_job">inspired by data</span>
+  <span class="author_bio mbm"></span>
+  <span class="author_bio mbm"><a href="http://www.findyourpodcast.com">Podcast Recommender</a></span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
@@ -162,7 +163,7 @@
 
 <p>A single tree captures some information but is insufficient to make an accurate prediction. Only when we aggregate the responses of hundreds of trees, do the predictions become robust. I liken it to guessing how many candies are in a jar. One person’s guess might be far off, but the average of 1,000 guesses is usually a good approximation.</p>
 
-<p>An issue with decision tree ensembles is that it’s not clear what relationships the model has learned. One visualize one tree (XGBoost has a plot_tree method) but one tree doesn’t tell us much. Which brings us to the awesome <a href="https://eli5.readthedocs.io/en/latest/index.html">ELI5 package</a>. ELI5, an acronym for explain like I’m five, offers ways to visualize and understand how your model is making predictions. Specifically, for a given observation, it can tell you the impact of each feature on the prediction. It works by looking at how the prediction changes across all of the trees based on a specific feature. Let’s consider one student who studied for 5 hours. ELI5 might tell us that across all of the trees, having a value of 5 for hours studied has a +10 impact on the prediction for the upcoming test. When we extend this to a large number of observations, we can understand the relationships the model is learning.</p>
+<p>An issue with decision tree ensembles is that it’s not clear what relationships the model has learned. One can visualize one tree (XGBoost has a plot_tree method) but one tree doesn’t tell us much. Which brings us to the awesome <a href="https://eli5.readthedocs.io/en/latest/index.html">ELI5 package</a>. ELI5, an acronym for explain like I’m five, offers ways to visualize and understand how your model is making predictions. Specifically, for a given observation, it can tell you the impact of each feature on the prediction. It works by looking at how the prediction changes across all of the trees based on a specific feature. Let’s consider one student who studied for 5 hours. ELI5 might tell us that across all of the trees, having a value of 5 for hours studied has a +10 impact on the prediction for the upcoming test. When we extend this to a large number of observations, we can understand the relationships the model is learning.</p>
 
 <p>Using a dataset on hospital readmission, I want to walk through an example. The dataset is described in detail <a href="https://www.hindawi.com/journals/bmri/2014/781670/">here</a> but essentially there are features pertaining to a hospital visit such as the number of diagnoses made, length of visit, and how many procedures were performed, and the target variable is if they were readmitted to the hospital. I trained an XGBoost model and ran ELI5’s explain_prediction method on 2,000 observations to build a dataset of feature values and their impact on predictions. After filtering for a specific feature and averaging weights across feature values, we can get an idea of the relationship that the model has learned. A positive weight is related to a higher predicted probability of readmission. This graphic shows the average weight for observations with between 2 and 10 diagnoses entered into the system during the patient’s visit.
 <br />
