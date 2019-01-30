@@ -5,9 +5,26 @@
     <description>inspired by data.</description>
     <link>http://www.marksalama.com/</link>
     <atom:link href="http://www.marksalama.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>2019-01-23</pubDate>
-    <lastBuildDate>Wed, 23 Jan 2019 21:09:05 +0100</lastBuildDate>
+    <pubDate>2019-01-31</pubDate>
+    <lastBuildDate>Thu, 31 Jan 2019 00:10:45 +0100</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>New York State Car Registrations by County</title>
+        <description>&lt;p&gt;Dash makes it easy to build interactive web apps to analyze and visualize data, and the state of New York provides data on all &lt;a href=&quot;https://data.ny.gov/Transportation/Vehicle-Snowmobile-and-Boat-Registrations/w4pv-hbkt&quot;&gt;vehicle registrations&lt;/a&gt;. Combining the two, I built an app and deployed it using &lt;a href=&quot;http://nys-car-reg.herokuapp.com&quot;&gt;Heroku&lt;/a&gt;. Here’s a screenshot using the brand Subaru.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/img/subaru.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The dataset includes all vehicle registrations over the last 2 years, and I filtered the data to cars with a model year of 2016 or later in an attempt to capture new car sales. Subaru is interesting because we see many contiguous counties with greater than 10% of registrations. Open the &lt;a href=&quot;http://nys-car-reg.herokuapp.com&quot;&gt;app&lt;/a&gt; and explore other brands!&lt;/p&gt;
+</description>
+        <pubDate>2019-01-31</pubDate>
+        <link>http://www.marksalama.com/articles/2019-01/nys-car_reg</link>
+        <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/nys-car_reg</guid>
+        
+        
+        <category>visualization</category>
+        
+      </item>
     
       <item>
         <title>Lottery Ticket Sales by State</title>
@@ -24,9 +41,9 @@
 &lt;p&gt;&lt;a href=&quot;https://github.com/mark-salama/lottery_analysis&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>2019-01-23</pubDate>
-        <link>http://www.marksalama.com/articles/2019-01/all-lottery-sales</link>
-        <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/all-lottery-sales</guid>
+        <pubDate>2019-01-31</pubDate>
+        <link>http://www.marksalama.com/articles/2019-01/all-lottery-sales-copy</link>
+        <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/all-lottery-sales-copy</guid>
         
         
         <category>visualization</category>
@@ -46,7 +63,7 @@
 &lt;p&gt;In &lt;a href=&quot;https://press.princeton.edu/titles/10534.html&quot;&gt;Phishing for Phools&lt;/a&gt;, Akerlof and Shiller explain that when slot machines were first introduced in the late-1800s, Americans were glued to these machines. Many lives were ruined and eventually regulations were introduced to limit slot machines to casinos. Now, with so many parties benefiting from lottery revenue, regulations are unlikely to disrupt the status-quo. The prevailing forces are pushing Americans to gamble more and more.&lt;/p&gt;
 
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/powerball-megamillions</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/powerball-megamillions</guid>
         
@@ -74,7 +91,7 @@
 
 &lt;p&gt;The code is on my &lt;a href=&quot;https://github.com/mark-salama/eli_hospital_readmissions&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/visualizing-decision-trees</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/visualizing-decision-trees</guid>
         
@@ -93,7 +110,7 @@
 
 &lt;p&gt;Brooklyn has seen greater appreciation than Manhattan, especially in the last few years.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/visualizing-brooklyn-home-price-appreciation</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/visualizing-brooklyn-home-price-appreciation</guid>
         
@@ -113,7 +130,7 @@
 &lt;p&gt;The only tricky part was figuring out how to associate each transaction with a neighborhood. I found the latitude and longitude of all zip codes for which there was a transaction, and then used geopandas to join each zip code to a neighborhood. It would have been more accurate to find the latitude and longitude for each address but that would have required a large number of Google API calls.&lt;/p&gt;
 
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2019-01/visualizing-manhattan-home-price-appreciation</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2019-01/visualizing-manhattan-home-price-appreciation</guid>
         
@@ -130,7 +147,7 @@
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/img/fb_may.gif&quot; alt=&quot;alt text&quot; title=&quot;Sell in May&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2018-12/sell-in-may</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2018-12/sell-in-may</guid>
         
@@ -149,7 +166,7 @@
 
 &lt;p&gt;Using the podcasts database from &lt;a href=&quot;https://www.listennotes.com&quot;&gt;Listen Notes&lt;/a&gt; and the Twitter API, I extended this concept to 1,000 podcasts and built a website using Django. I received feedback that people weren’t finding their favorite podcasts which led me to extend it to 3,000 podcasts. I received the same feedback but without a paid Twitter Developer account, one can only download a certain number of follower lists at one time, which makes it hard to scale to additional podcasts, or keep recommendations up-to-date. So you might not find your favorite podcast, but the recommendations work pretty well.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2018-10/find-your-podcast</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2018-10/find-your-podcast</guid>
         
@@ -168,7 +185,7 @@
 
 &lt;p&gt;To arrive at similarities for each movie, I used the &lt;a href=&quot;http://surpriselib.com&quot;&gt;surprise&lt;/a&gt; python package to build a similarity matrix capturing how similar each movie is to every other movie. As this matrix is very large (with n^2 entries) I employed principal component analysis (PCA) with 10 components to create a more manageable dataset. I found that 10 components was a good balance of complexity and predictive power. When a user selects a movie from the dropdown, movies with the most similar vector representations (from the PCA of the similarity matrix) are displayed. As much of the impetus for this project was to be able to identify recommendations based on multiple starting movies, I thought a lot about how to go two or more movies, to a list of similar movies, but ultimately settled on simply averaging the vectors of the selected movies.&lt;/p&gt;
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2018-08/movie-recommender</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2018-08/movie-recommender</guid>
         
@@ -239,7 +256,7 @@ def matrix_fact(num_fact, interations):
     return user_list, movie_list
 ``` --&gt;
 </description>
-        <pubDate>2019-01-23</pubDate>
+        <pubDate>2019-01-31</pubDate>
         <link>http://www.marksalama.com/articles/2017-05/movie-pmf</link>
         <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/movie-pmf</guid>
         
@@ -247,29 +264,6 @@ def matrix_fact(num_fact, interations):
         <category>recommender systems</category>
         
         <category>movies</category>
-        
-      </item>
-    
-      <item>
-        <title>NYC Neighborhood Average Age through Citibike Usage</title>
-        <description>&lt;p&gt;Citibike makes data available for all rides on their network. We have the starting station location of each trip, and for most trips, the birth year of the rider. I approximated age from the birth year variable, and using the Google API, I associated each Citibike station with a neighborhood in NYC (e.g., Chelsea or Williamsburg). I then looked at the average age of riders by starting neighborhood.&lt;/p&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/img/citibike_age_neigh.png&quot; alt=&quot;alt text&quot; title=&quot;Age Neighborhood&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The most common age (mode) is actually the same for UWS and Williamsburg - 31 years old. The distributions below show why the averages are so different.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/age_distributions.png&quot; alt=&quot;alt text&quot; title=&quot;Age Neighborhood&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I used a combination of pandas, R (ggplot), and seaborn to produce these graphics.&lt;/p&gt;
-</description>
-        <pubDate>2019-01-23</pubDate>
-        <link>http://www.marksalama.com/articles/2017-05/bike-share-2</link>
-        <guid isPermaLink="true">http://www.marksalama.com/articles/2017-05/bike-share-2</guid>
-        
-        
-        <category>visualization</category>
-        
-        <category>biking</category>
         
       </item>
     
